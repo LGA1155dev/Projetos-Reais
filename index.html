@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Recipe page</title>
+  <script src="https://kit.fontawesome.com/170c208023.js" crossorigin="anonymous"></script>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -22,12 +23,45 @@
       box-sizing: border-box;
     }
 
+    html{
+      scroll-behavior: smooth;
+    }
+
     body{
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
       background-color: #dad2d1;
       height: 100vh;
+    }
+
+    menu{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      background-color: #e28ae22d;
+      box-shadow: 1px 1px 10px 1px #ffacffb9;
+      width: 100%;
+
+      & a{
+        color: #855485;
+      }
+
+      & abbr{
+        height: 45px;
+        font-size: 1.8em;
+        color: lightslategrey;
+        margin: 5px;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover{
+          text-shadow: 1px 1px 1px white;
+          border-bottom: 3px solid #855485;
+          
+        }
+      }
     }
 
     .container{
@@ -134,12 +168,61 @@
       border-bottom: 2px solid #636363;
     }
 
+    @media screen and (min-width: 375px) and (max-width: 992px) {
+      menu{
+        display: none;
+      }
+
+      header{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & i{
+          padding: 5px;
+          font-size: 1.5em;
+          color: black;
+          background-color: white;
+          border-radius: 5px;
+        }
+
+        & aside{
+          background-color: #a06da0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          flex-direction: column;
+          width: 100%;
+
+          & a{
+            font-size: 1.4em;
+            font-family: "Poppins";
+            color: black;
+            text-decoration: none;
+            border: 2px solid black;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.568);
+            width: 100%;
+            padding: 20px;
+          }
+        }
+
+
+      }
+    }
+
     @media screen and (min-width: 1440px) {
           .container{
             border-radius: 20px;
             width: 700px;
             padding: 30px;
             margin: 20px;
+          }
+
+          header{
+            display: none;
           }
 
           h2{
@@ -158,9 +241,33 @@
   </style>
 </head>
 <body>
+
+  <header>
+    <a href="#" id="MenuBar"><i class="fa-solid fa-bars"></i></a>
+
+  <aside>
+
+    <a href="#Foto-Omellet" class="Items">Omellet</a>
+    <a href="#Tempo-Preparação" class="Items">Tempo-Preparação</a>
+    <a href="#Ingredientes" class="Items">Ingredientes</a>
+    <a href="#Instruções" class="Items">Instruções</a>
+    <a href="#Info-Nutricionais" class="Items">Info. Nutricionais</a>
+  </aside>
+  </header>
+
+  <menu>
+
+  <abbr title="Foto do Omellet"><a href="#Foto-Omellet"><i class="fa-solid fa-burger"></i></a></abbr>
+  <abbr title="Tempo de Preparação"><a href="#Tempo-Preparação"><i class="fa-solid fa-stopwatch"></i></a></abbr>
+  <abbr title="Ingredientes"><a href="#Ingredientes"><i class="fa-solid fa-clipboard-list"></i></a></abbr>
+  <abbr title="Instruções"><a href="#Instruções"><i class="fa-solid fa-book"></i></a></abbr>
+  <abbr title="Informações Nutricionais"><a href="#Info-Nutricionais"><i class="fa-solid fa-circle-info"></i></a></abbr>
+
+  </menu>
+
 <main class="container">
   
-  <img src="imagens/image-omelette.jpeg" alt="">
+  <img src="imagens/image-omelette.jpeg" alt="Foto do Omellet pronto" id="Foto-Omellet">
   
     <h1>Simple Omelette Recipe</h1>
   
@@ -169,7 +276,7 @@
       to perfection, optionally filled with your choice of cheese, vegetables, or meats.
     </p>
   
-    <section class="Preparacao">
+    <section class="Preparacao" id="Tempo-Preparação">
       <h2>Preparation time</h2>
         <ul>
         <li><span>Total</span>: Approximately 10 minutes</li>
@@ -178,7 +285,7 @@
         </ul>
     </section>
   
-    <h2>Ingredients</h2>
+    <h2 id="Ingredientes">Ingredients</h2>
   
     <ul class="border-bottom">
       <li>2-3 large eggs</li>
@@ -188,7 +295,7 @@
       <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
     </ul>
   
-    <h2>Instructions</h2>
+    <h2 id="Instruções">Instructions</h2>
   <ol type="1" class="border-bottom">
   
       <li>Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed.</li>
@@ -214,7 +321,7 @@
       <li>Enjoy: Serve hot, with additional salt and pepper if needed.</li>
   </ol>
   
-    <h2>Nutrition</h2>
+    <h2 id="Info-Nutricionais">Nutrition</h2>
   
     <p>The table below shows nutritional values per serving without the additional fillings.</p>
   
@@ -255,5 +362,7 @@
   
     
 </main>
+
+<script src="script.js"></script>
 </body>
 </html>
